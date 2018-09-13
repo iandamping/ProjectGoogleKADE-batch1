@@ -97,7 +97,7 @@ class DetailNextMatchActivity : AppCompatActivity(), DetailNextMatchView {
     }
 
 
-    override fun onSuccess(data: MainModelNextMatch.Event ) {
+    override fun onSuccess(data: MainModelNextMatch.Event) {
         tvDetailDateNextMatch.text = data.dateEvent
         tvHomeTeamDetailNextMatch.text = data.strHomeTeam
         tvAwayTeamDetailNextMatch.text = data.strAwayTeam
@@ -158,7 +158,7 @@ class DetailNextMatchActivity : AppCompatActivity(), DetailNextMatchView {
         }
     }
 
-   private fun addToFav(data: MainModelNextMatch.Event, awayTeam: String?, homeTeam: String?) {
+    private fun addToFav(data: MainModelNextMatch.Event, awayTeam: String?, homeTeam: String?) {
         try {
             database.use {
                 insert(DatabaseModel.TABLE_FAVORITE,

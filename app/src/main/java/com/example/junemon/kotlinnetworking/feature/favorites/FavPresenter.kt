@@ -1,7 +1,6 @@
 package com.example.junemon.kotlinnetworking.feature.favorites
 
 import android.content.Context
-import android.support.test.espresso.IdlingResource
 import android.view.View
 import com.example.junemon.kotlinnetworking.base.BaseFragmentPresenter
 import com.example.junemon.kotlinnetworking.databases.DatabaseModel
@@ -34,7 +33,6 @@ class FavPresenter(var mViews: FavView) : BaseFragmentPresenter {
         }
 
     }
-
 
 
 }

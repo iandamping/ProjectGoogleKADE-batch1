@@ -7,15 +7,22 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.junemon.kotlinnetworking.R
+import com.example.junemon.kotlinnetworking.databases.DatabaseLeagueModel
 import com.example.junemon.kotlinnetworking.feature.lastmatch.detail.DetailLastMatchActivity
 import com.example.junemon.kotlinnetworking.model.MainModelLastMatch
+import io.reactivex.Observable
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_lastmatch.*
 import kotlinx.android.synthetic.main.activity_lastmatch.view.*
 import org.jetbrains.anko.support.v4.intentFor
 
 class LastMatchFragment : Fragment(), LastMatchFragmentView {
+
+    lateinit var leagueCategory: ArrayAdapter<DatabaseLeagueModel>
     var presenter: LastMatchFragmentPresenter = LastMatchFragmentPresenter(this)
     var ctx: Context? = null
 
@@ -27,7 +34,6 @@ class LastMatchFragment : Fragment(), LastMatchFragmentView {
         super.onAttach(context)
         this.ctx = context
         presenter.onAttach(ctx)
-
     }
 
 
@@ -56,7 +62,26 @@ class LastMatchFragment : Fragment(), LastMatchFragmentView {
 
     override fun initView(view: View) {
         presenter.getData()
-
+        presenter.getAllData()
     }
+
+    override fun allLeagueData(allData: List<DatabaseLeagueModel>) {
+
+//        leagueCategory = ArrayAdapter<DatabaseLeagueModel>(ctx, android.R.layout.simple_spinner_item, allData)
+//        leagueCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//        spLastLeague.adapter = leagueCategory
+//
+//        spLastLeague.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//            override fun onNothingSelected(p0: AdapterView<*>?) {
+//                presenter.getData(allData.get(0).idLeague)
+//            }
+//
+//            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+//                presenter.getData(allData.get(p2).idLeague)
+//            }
+//
+//        }
+    }
+
 
 }

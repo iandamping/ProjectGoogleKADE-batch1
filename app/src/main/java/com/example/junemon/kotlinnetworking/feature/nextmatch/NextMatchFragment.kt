@@ -17,7 +17,11 @@ import org.jetbrains.anko.support.v4.intentFor
 import org.jetbrains.anko.yesButton
 
 class NextMatchFragment : Fragment(), NextMatchFragmentView {
+
+
     var ctx: Context? = null
+
+
     var presenter: NextMatchFragmentPresenter = NextMatchFragmentPresenter(this)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -57,5 +61,6 @@ class NextMatchFragment : Fragment(), NextMatchFragmentView {
         presenter.getData()
 
     }
+
 
 }

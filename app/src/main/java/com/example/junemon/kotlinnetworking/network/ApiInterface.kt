@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface ApiInterface {
 
     @GET(ApiConfig.getPastEvent)
-    fun getPastEventData(): Observable<MainModelLastMatch>
+    fun getPastEventData(@Query("id") teamName: String?): Observable<MainModelLastMatch>
 
     @GET(ApiConfig.getAllLeague)
     fun getAllLeague(): Observable<AllLeagueModel>
