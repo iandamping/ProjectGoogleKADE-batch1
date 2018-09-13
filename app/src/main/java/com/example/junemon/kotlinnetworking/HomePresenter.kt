@@ -34,6 +34,5 @@ class HomePresenter(var mView: HomeView) : BasePresenter {
     }
 
     override fun onDestroy() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
