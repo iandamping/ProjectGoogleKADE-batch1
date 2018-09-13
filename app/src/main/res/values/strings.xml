@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">KotlinNetworking</string>
+    <string name="last_15_games">4328</string>
+    <string name="parcel_key">keys</string>
+    <string name="parcel_data_key">keys</string>
+    <string name="previous_match">PreviousMatch</string>
+    <string name="next_match">Next Match</string>
+    <string name="favorite">Favorites</string>
+    <string name="no_data">No Data Yet</string>
+    <string name="table_name">TABLE_FAVORITE</string>
+    <string name="table_league_name">TABLE_LEAGUE</string>
+    <string name="database_name">FavoriteTeam.db</string>
+
+    <string name="TABLE_FAVORITE">TABLE_FAVORITE</string>
+    <string name="id_table">ID_</string>
+    <string name="TEAM_HOME_ID">TEAM_HOME_ID</string>
+    <string name="TEAM_AWAY_ID">TEAM_AWAY_ID</string>
+    <string name="TEAM_HOME_NAME">TEAM_HOME_NAME</string>
+    <string name="TEAM_AWAY_NAME">TEAM_AWAY_NAME</string>
+    <string name="TEAM_HOME_SCORE">TEAM_HOME_SCORE</string>
+    <string name="TEAM_AWAY_SCORE">TEAM_AWAY_SCORE</string>
+    <string name="HOME_GOAL_DETAILS">HOME_GOAL_DETAILS</string>
+    <string name="AWAY_GOAL_DETAILS">AWAY_GOAL_DETAILS</string>
+    <string name="HOME_GOALKEPEER">HOME_GOALKEPEER</string>
+    <string name="AWAY_GOALKEPEER">AWAY_GOALKEPEER</string>
+    <string name="HOME_DEFENSE">HOME_DEFENSE</string>
+    <string name="AWAY_DEFENSE">AWAY_DEFENSE</string>
+    <string name="HOME_MIDFIELD">HOME_MIDFIELD</string>
+    <string name="AWAY_MIDFIELD">AWAY_MIDFIELD</string>
+    <string name="HOME_FORWARD">HOME_FORWARD</string>
+    <string name="AWAY_FORWARD">AWAY_FORWARD</string>
+    <string name="DATE_EVENT">DATE_EVENT</string>
+    <string name="TEAM_AWAY_BADGE">TEAM_AWAY_BADGE</string>
+    <string name="TEAM_HOME_BADGE">TEAM_HOME_BADGE</string>
+
+
+
+</resources>
