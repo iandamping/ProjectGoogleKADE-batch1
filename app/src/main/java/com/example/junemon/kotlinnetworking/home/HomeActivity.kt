@@ -9,6 +9,7 @@ import com.example.junemon.kotlinnetworking.databases.DatabaseLeagueModel
 import com.example.junemon.kotlinnetworking.feature.favorites.FavFragment
 import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
 import com.example.junemon.kotlinnetworking.feature.nextmatch.NextMatchFragment
+import com.example.junemon.kotlinnetworking.feature.team.TeamFragment
 import com.example.junemon.kotlinnetworking.model.MainModelLastMatch
 import kotlinx.android.synthetic.main.homeactivity.*
 
@@ -27,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.nextMatches -> {
-                    loadNextMatchFragment(savedInstanceState)
+                    loadTeamFragment(savedInstanceState)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.favourites -> {
@@ -58,11 +59,11 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadPreviousMatchFragment(savedInstanceState: Bundle?) {
+    private fun loadTeamFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_container, LastMatchFragment(), LastMatchFragment::class.java.simpleName)
+                    .replace(R.id.main_container, TeamFragment().newInstance(data.strLeague), LastMatchFragment::class.java.simpleName)
                     .commit()
         }
     }

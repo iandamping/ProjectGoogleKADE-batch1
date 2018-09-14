@@ -24,8 +24,6 @@ class LastMatchFragment : Fragment(), LastMatchFragmentView {
 
     var presenter: LastMatchFragmentPresenter = LastMatchFragmentPresenter(this)
     var ctx: Context? = null
-    var position: Int = 0
-    var btn: Button? = null
     var TYPE_NEWS: String? = "type_league"
     lateinit var typeNews: String
 
