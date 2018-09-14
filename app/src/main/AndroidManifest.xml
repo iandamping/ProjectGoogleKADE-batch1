@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity android:name=".MainPager"/>-->
+        <activity android:name=".home.HomeActivity"/>
         <activity android:name="com.example.junemon.kotlinnetworking.feature.lastmatch.detail.DetailLastMatchActivity"/>
         <activity android:name="com.example.junemon.kotlinnetworking.feature.nextmatch.detail.DetailNextMatchActivity"/>
         <activity android:name=".feature.favorites.detail.FavDetailActivity"/>

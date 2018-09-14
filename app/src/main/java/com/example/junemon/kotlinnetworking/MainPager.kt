@@ -8,14 +8,27 @@ import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
 import com.example.junemon.kotlinnetworking.helper.SimpleAdapterFragment
 
 class MainPager : Fragment() {
     lateinit var vpMainPager: ViewPager
     lateinit var tabMainPager: TabLayout
+    var TYPE_NEWS:String? = "type_league"
+    lateinit var type: String
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    fun newInstance(type: String?): MainPager {
+        val bundle = Bundle()
+        val fragment = MainPager()
+        bundle.putString(TYPE_NEWS, type)
+        fragment.setArguments(bundle)
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val args = arguments
+        type = args?.getString(TYPE_NEWS) ?: "4328"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -30,7 +43,7 @@ class MainPager : Fragment() {
 
 
     fun buildAdapter(): PagerAdapter {
-        return SimpleAdapterFragment(childFragmentManager)
+        return SimpleAdapterFragment(childFragmentManager, type)
     }
 
 

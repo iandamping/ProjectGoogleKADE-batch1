@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Toast
@@ -23,23 +22,33 @@ import org.jetbrains.anko.support.v4.intentFor
 
 class LastMatchFragment : Fragment(), LastMatchFragmentView {
 
-    lateinit var leagueCategory: ArrayAdapter<String>
-    var parseData: ArrayList<String> = ArrayList()
-    var allDatas: ArrayList<DatabaseLeagueModel> = ArrayList()
     var presenter: LastMatchFragmentPresenter = LastMatchFragmentPresenter(this)
     var ctx: Context? = null
     var position: Int = 0
     var btn: Button? = null
+    var TYPE_NEWS: String? = "type_league"
+    lateinit var typeNews: String
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+
+    fun newInstance(type: String?): LastMatchFragment {
+        val bundle = Bundle()
+        val fragment = LastMatchFragment()
+        bundle.putString(TYPE_NEWS, type)
+        fragment.setArguments(bundle)
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val args = arguments
+        typeNews = args?.getString(TYPE_NEWS) ?: "4328"
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         this.ctx = context
         presenter.onAttach(ctx)
-        btn = view?.find(R.id.btnGetTeam)
+
 
     }
 
@@ -48,7 +57,7 @@ class LastMatchFragment : Fragment(), LastMatchFragmentView {
         var views: View = inflater.inflate(R.layout.activity_lastmatch, container, false)
         presenter.onCreateView(views)
         views.swipeLast.setOnRefreshListener {
-            presenter.getData()
+            presenter.getData(typeNews)
             swipeLast.isRefreshing = false
         }
         return views
@@ -69,40 +78,12 @@ class LastMatchFragment : Fragment(), LastMatchFragmentView {
     }
 
     override fun initView(view: View) {
-        presenter.getData()
-        presenter.getAllData()
+        presenter.getData(typeNews)
 
-        btn?.setOnClickListener {
-            presenter.getData(allDatas.get(position).idLeague)
-        }
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        leagueCategory = ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, parseData)
-        leagueCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spLastLeague.adapter = leagueCategory
 
-        spLastLeague.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                leagueCategory.getItem(0).toString()
-
-            }
-
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                leagueCategory.getItem(p2).toString()
-                Observable.just(p2).subscribe({ data -> position })
-            }
-
-        }
-    }
-
-    override fun allLeagueData(allData: List<DatabaseLeagueModel>) {
-        Observable.just(allData).subscribe({ results -> allDatas })
-
-        Observable.fromIterable(allData).subscribe({ results -> parseData.add(results.strLeague.toString()) })
-    }
 
 
 }

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.junemon.kotlinnetworking.R
+import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
 import com.example.junemon.kotlinnetworking.feature.nextmatch.detail.DetailNextMatchActivity
 import com.example.junemon.kotlinnetworking.model.MainModelNextMatch
 import kotlinx.android.synthetic.main.activity_nextmatch.*
@@ -24,8 +25,22 @@ class NextMatchFragment : Fragment(), NextMatchFragmentView {
 
     var presenter: NextMatchFragmentPresenter = NextMatchFragmentPresenter(this)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    var TYPE_NEWS: String? = "type_league"
+    lateinit var typeNews: String
+
+
+    fun newInstance(type: String?): NextMatchFragment {
+        val bundle = Bundle()
+        val fragment = NextMatchFragment()
+        bundle.putString(TYPE_NEWS, type)
+        fragment.setArguments(bundle)
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val args = arguments
+        typeNews = args?.getString(TYPE_NEWS) ?: "4328"
     }
 
     override fun onAttach(context: Context?) {
@@ -37,7 +52,7 @@ class NextMatchFragment : Fragment(), NextMatchFragmentView {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var views: View = inflater.inflate(R.layout.activity_nextmatch, container, false)
         views.swipeNext.setOnRefreshListener {
-            presenter.getData()
+            presenter.getData(typeNews)
             swipeNext.isRefreshing = false
         }
         presenter.onCreateView(views)
@@ -58,7 +73,7 @@ class NextMatchFragment : Fragment(), NextMatchFragmentView {
     }
 
     override fun initView(view: View) {
-        presenter.getData()
+        presenter.getData(typeNews)
 
     }
 

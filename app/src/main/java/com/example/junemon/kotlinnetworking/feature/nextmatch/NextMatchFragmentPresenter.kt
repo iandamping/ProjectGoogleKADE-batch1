@@ -24,8 +24,8 @@ class NextMatchFragmentPresenter(var mView: NextMatchFragmentView) : BaseFragmen
         composite = CompositeDisposable()
     }
 
-    fun getData() {
-        composite.add(MainApplication.getFootballEvent.getNextEventData()
+    fun getData(data:String ="4328") {
+        composite.add(MainApplication.getFootballEvent.getNextEventData(data)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result -> mView.onSuccess(result.events) },
                         { error -> mView.onFailed(error.localizedMessage) }))

@@ -39,15 +39,15 @@ class LastMatchFragmentPresenter(var mView: LastMatchFragmentView) : BaseFragmen
         mView.initView(view)
     }
 
-    fun getAllData() {
-        EspressoIdlingResource.increments()
-        ctx?.database?.use {
-            val result = select(DatabaseLeagueModel.TABLE_LEAGUE)
-            val favorite = result.parseList(classParser<DatabaseLeagueModel>())
-            mView.allLeagueData(favorite)
-            EspressoIdlingResource.decrements()
-        }
-    }
+//    fun getAllData() {
+//        EspressoIdlingResource.increments()
+//        ctx?.database?.use {
+//            val result = select(DatabaseLeagueModel.TABLE_LEAGUE)
+//            val favorite = result.parseList(classParser<DatabaseLeagueModel>())
+//            mView.allLeagueData(favorite)
+//            EspressoIdlingResource.decrements()
+//        }
+//    }
 
 //    fun getAllDataBySearch(leagueName: String = "English Premier League") {
 //        EspressoIdlingResource.increments()

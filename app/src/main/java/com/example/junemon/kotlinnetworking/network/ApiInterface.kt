@@ -23,7 +23,7 @@ interface ApiInterface {
     fun getLastAwayTeamInfo(@Query("id") teamName: String?): Observable<DetailLastMatchModel>
 
     @GET(ApiConfig.getNextEvent)
-    fun getNextEventData(): Observable<MainModelNextMatch>
+    fun getNextEventData(@Query("id") teamName: String?): Observable<MainModelNextMatch>
 
     @GET(ApiConfig.getTeamInfo)
     fun getNextHomeTeamInfo(@Query("id") teamName: String?): Observable<DetailNextMatchModel>

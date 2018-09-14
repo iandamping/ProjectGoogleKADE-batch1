@@ -6,14 +6,14 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
 import com.example.junemon.kotlinnetworking.feature.nextmatch.NextMatchFragment
 
-class SimpleAdapterFragment(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class SimpleAdapterFragment(fragmentManager: FragmentManager, var data:String) : FragmentPagerAdapter(fragmentManager) {
     private val page_count: Int = 2
     private val tabTitle = arrayOf("Last Match", "Next Match")
 
     override fun getItem(position: Int): Fragment? {
-        var fragment: Fragment? = LastMatchFragment()
+        var fragment: Fragment? = LastMatchFragment().newInstance(data)
         when (position) {
-            1 -> fragment = NextMatchFragment()
+            1 -> fragment = NextMatchFragment().newInstance(data)
         }
         return fragment
     }
