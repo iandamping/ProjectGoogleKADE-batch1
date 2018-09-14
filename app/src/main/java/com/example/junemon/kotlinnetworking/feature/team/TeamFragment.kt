@@ -9,9 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.junemon.kotlinnetworking.R
+import com.example.junemon.kotlinnetworking.feature.team.detail.TeamDetail
 import com.example.junemon.kotlinnetworking.model.TeamModel
 import kotlinx.android.synthetic.main.activity_all_team.*
 import kotlinx.android.synthetic.main.activity_all_team.view.*
+import org.jetbrains.anko.support.v4.intentFor
 
 class TeamFragment : Fragment(), TeamView {
     var presenter: TeamPresenter = TeamPresenter(this)
@@ -52,7 +54,7 @@ class TeamFragment : Fragment(), TeamView {
     override fun onSuccessData(data: List<TeamModel.Team>) {
         rvAllTeam.layoutManager = LinearLayoutManager(ctx)
         rvAllTeam.adapter = TeamAdapter(ctx, data) {
-
+            startActivity(intentFor<TeamDetail>("KeysTeam" to it))
         }
     }
 

@@ -30,4 +30,10 @@ interface ApiInterface {
 
     @GET(ApiConfig.getTeamInfo)
     fun getNextAwayTeamInfo(@Query("id") teamName: String?): Observable<DetailNextMatchModel>
+
+    @GET(ApiConfig.getAllPlayers)
+    fun getAllPlayer(@Query("id") allPlayer: String?): Observable<AllPlayer>
+
+    @GET(ApiConfig.getTeamDetails)
+    fun getTeamDetail(@Query("id") teamName: String?): Observable<TeamDetailModel>
 }
