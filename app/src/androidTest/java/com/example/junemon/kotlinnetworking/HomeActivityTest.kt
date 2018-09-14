@@ -12,6 +12,7 @@ import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
 import com.example.junemon.kotlinnetworking.R.id.*
 import com.example.junemon.kotlinnetworking.helper.EspressoIdlingResource
+import com.example.junemon.kotlinnetworking.home.HomeActivity
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

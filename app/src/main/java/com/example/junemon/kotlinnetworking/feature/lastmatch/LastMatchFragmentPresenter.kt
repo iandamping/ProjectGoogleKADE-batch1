@@ -2,14 +2,11 @@ package com.example.junemon.kotlinnetworking.feature.lastmatch
 
 import android.content.Context
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.Spinner
 import com.example.junemon.kotlinnetworking.MainApplication
 import com.example.junemon.kotlinnetworking.base.BaseFragmentPresenter
 import com.example.junemon.kotlinnetworking.databases.DatabaseLeagueModel
 import com.example.junemon.kotlinnetworking.databases.database
 import com.example.junemon.kotlinnetworking.helper.EspressoIdlingResource
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -27,7 +24,7 @@ class LastMatchFragmentPresenter(var mView: LastMatchFragmentView) : BaseFragmen
 
     }
 
-    fun getData(idLastMatch:String? = "4328") {
+    fun getData(idLastMatch: String? = "4328") {
         EspressoIdlingResource.increments()
         composite.addAll(MainApplication.getFootballEvent.getPastEventData(idLastMatch)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
@@ -51,6 +48,15 @@ class LastMatchFragmentPresenter(var mView: LastMatchFragmentView) : BaseFragmen
             EspressoIdlingResource.decrements()
         }
     }
+
+//    fun getAllDataBySearch(leagueName: String = "English Premier League") {
+//        EspressoIdlingResource.increments()
+//        composite.addAll(MainApplication.getFootballEvent.getAllTeamsData(leagueName)
+//                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+//                .subscribe({ result -> mView.onSuccess(result.events) },
+//                        { error -> mView.onFailed(error.localizedMessage) },
+//                        { EspressoIdlingResource.decrements() }))
+//    }
 
 
 }
