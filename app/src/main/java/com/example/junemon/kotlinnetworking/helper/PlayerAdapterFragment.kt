@@ -3,8 +3,8 @@ package com.example.junemon.kotlinnetworking.helper
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.example.junemon.kotlinnetworking.feature.nextmatch.NextMatchFragment
 import com.example.junemon.kotlinnetworking.feature.team.detail.overview.OverviewFrag
+import com.example.junemon.kotlinnetworking.feature.team.detail.player.PlayerFrag
 import com.example.junemon.kotlinnetworking.model.TeamModel
 
 class PlayerAdapterFragment(fragmentManager: FragmentManager, var data: TeamModel.Team) : FragmentPagerAdapter(fragmentManager) {
@@ -14,7 +14,7 @@ class PlayerAdapterFragment(fragmentManager: FragmentManager, var data: TeamMode
     override fun getItem(position: Int): Fragment? {
         var fragment: Fragment? = OverviewFrag().newInstance(data.idTeam)
         when (position) {
-            1 -> fragment = NextMatchFragment()
+            1 -> fragment = PlayerFrag().newInstance(data.idTeam)
         }
         return fragment
     }
