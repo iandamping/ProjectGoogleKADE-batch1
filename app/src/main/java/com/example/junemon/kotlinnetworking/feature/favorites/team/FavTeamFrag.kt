@@ -3,13 +3,16 @@ package com.example.junemon.kotlinnetworking.feature.favorites.team
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.junemon.kotlinnetworking.R
 import com.example.junemon.kotlinnetworking.databases.DatabasesTeamModel
+import com.example.junemon.kotlinnetworking.feature.favorites.team.detail.FavTeamDetailActivity
 import kotlinx.android.synthetic.main.activity_team_favorite.*
 import kotlinx.android.synthetic.main.activity_team_favorite.view.*
+import org.jetbrains.anko.support.v4.intentFor
 
 class FavTeamFrag : Fragment(), FavTeamView {
     lateinit var viewsd: View
@@ -37,11 +40,20 @@ class FavTeamFrag : Fragment(), FavTeamView {
     }
 
     override fun onSuccesGetData(data: List<DatabasesTeamModel>) {
+        viewsd.rvFavAllTeam.layoutManager = LinearLayoutManager(ctx)
+
+        viewsd.rvFavAllTeam.adapter = FavTeamAdapter(ctx, data) {
+            startActivity(intentFor<FavTeamDetailActivity>(Integer.toString(R.string.detail_all_team) to it))
+        }
+
+        viewsd.rvFavAllTeam.adapter.notifyDataSetChanged()
     }
 
     override fun onFailedGetData(message: String) {
     }
 
     override fun initView(view: View) {
+        viewsd = view
+        presenter.showFav()
     }
 }

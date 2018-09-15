@@ -27,6 +27,11 @@ class MainScreen : AppCompatActivity(), MainScreenView {
         presenter.onCreate(this)
         presenter.addDatabaseLeague()
         presenter.showDbLeague()
+
+        swipeMainScreen.setOnRefreshListener {
+            presenter.showDbLeague()
+            swipeMainScreen.isRefreshing = false
+        }
     }
 
     override fun onSuccess(data: List<AllLeagueModel.League>) {

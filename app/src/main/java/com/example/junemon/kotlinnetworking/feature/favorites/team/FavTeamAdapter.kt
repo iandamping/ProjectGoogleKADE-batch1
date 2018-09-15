@@ -26,8 +26,8 @@ class FavTeamAdapter(var ctx: Context?, var listData: List<DatabasesTeamModel>, 
 
     class ViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bindViews(item: DatabasesTeamModel, listener: (DatabasesTeamModel) -> Unit) {
-            Picasso.get().load(item.strTeamBadge).into(ivAllFavTeam)
-            tvAllFavTeam.text = item.strTeam
+            Picasso.get().load(item.strDescriptionEN).into(ivAllFavTeam)
+            tvAllFavTeam.text = item.idTeam
             itemView.setOnClickListener { listener((item)) }
         }
     }

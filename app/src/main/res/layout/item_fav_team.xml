@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/spacing_medium"
+                android:gravity="center"
                 android:textColor="#000"
                 android:textSize="@dimen/letter_medium"
                 tools:text="testing" />
