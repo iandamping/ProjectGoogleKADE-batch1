@@ -1,14 +1,12 @@
 package com.example.junemon.kotlinnetworking.feature.mainscreen
 
 import android.content.Context
-import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.junemon.kotlinnetworking.R
 import com.example.junemon.kotlinnetworking.databases.DatabaseLeagueModel
-import io.reactivex.Observable
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_mainscreen.*
 

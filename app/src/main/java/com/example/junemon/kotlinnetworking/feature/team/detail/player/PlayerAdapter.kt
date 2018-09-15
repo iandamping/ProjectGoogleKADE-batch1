@@ -30,7 +30,8 @@ class PlayerAdapter(var ctx: Context?, var listData: List<AllPlayer.Player>, val
             tvPlayerName.text = item.strPlayer
             tvPlayerPosition.text = item.strPosition
 
-            itemView.setOnClickListener { listener((item)) }
+            itemView.setOnClickListener {
+                listener((item)) }
         }
     }
 }

@@ -8,13 +8,12 @@ import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
 import com.example.junemon.kotlinnetworking.helper.SimpleAdapterFragment
 
 class MainPager : Fragment() {
     lateinit var vpMainPager: ViewPager
     lateinit var tabMainPager: TabLayout
-    var TYPE_NEWS:String? = "type_league"
+    var TYPE_NEWS: String? = "type_league"
     lateinit var type: String
 
     fun newInstance(type: String?): MainPager {

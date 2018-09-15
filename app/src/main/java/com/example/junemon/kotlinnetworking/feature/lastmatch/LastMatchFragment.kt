@@ -7,17 +7,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.Toast
 import com.example.junemon.kotlinnetworking.R
-import com.example.junemon.kotlinnetworking.databases.DatabaseLeagueModel
 import com.example.junemon.kotlinnetworking.feature.lastmatch.detail.DetailLastMatchActivity
 import com.example.junemon.kotlinnetworking.model.MainModelLastMatch
-import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_lastmatch.*
 import kotlinx.android.synthetic.main.activity_lastmatch.view.*
-import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.intentFor
 
 class LastMatchFragment : Fragment(), LastMatchFragmentView {
@@ -80,8 +75,6 @@ class LastMatchFragment : Fragment(), LastMatchFragmentView {
 
 
     }
-
-
 
 
 }

@@ -10,7 +10,7 @@
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/nextMatches"
+        android:id="@+id/listTeams"
         android:enabled="true"
         android:icon="@drawable/ic_teams"
         android:title="@string/next_match"

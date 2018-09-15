@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.junemon.kotlinnetworking.R
-import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
 import com.example.junemon.kotlinnetworking.feature.nextmatch.detail.DetailNextMatchActivity
 import com.example.junemon.kotlinnetworking.model.MainModelNextMatch
 import kotlinx.android.synthetic.main.activity_nextmatch.*

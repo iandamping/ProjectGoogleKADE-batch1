@@ -10,7 +10,6 @@ import com.example.junemon.kotlinnetworking.feature.favorites.FavFragment
 import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
 import com.example.junemon.kotlinnetworking.feature.nextmatch.NextMatchFragment
 import com.example.junemon.kotlinnetworking.feature.team.TeamFragment
-import com.example.junemon.kotlinnetworking.model.MainModelLastMatch
 import kotlinx.android.synthetic.main.homeactivity.*
 
 class HomeActivity : AppCompatActivity() {
@@ -27,7 +26,7 @@ class HomeActivity : AppCompatActivity() {
                     loadMainFragment(savedInstanceState)
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.nextMatches -> {
+                R.id.listTeams -> {
                     loadTeamFragment(savedInstanceState)
                     return@setOnNavigationItemSelectedListener true
                 }

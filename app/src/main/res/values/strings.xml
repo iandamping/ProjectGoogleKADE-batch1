@@ -4,7 +4,7 @@
     <string name="parcel_key">keys</string>
     <string name="parcel_data_key">keys</string>
     <string name="previous_match">PreviousMatch</string>
-    <string name="next_match">Next Match</string>
+    <string name="next_match">Teams</string>
     <string name="favorite">Favorites</string>
     <string name="no_data">No Data Yet</string>
     <string name="table_name">TABLE_FAVORITE</string>
@@ -32,6 +32,8 @@
     <string name="DATE_EVENT">DATE_EVENT</string>
     <string name="TEAM_AWAY_BADGE">TEAM_AWAY_BADGE</string>
     <string name="TEAM_HOME_BADGE">TEAM_HOME_BADGE</string>
+
+    <string name="player_detail_frag">player_detailed</string>
 
 
 

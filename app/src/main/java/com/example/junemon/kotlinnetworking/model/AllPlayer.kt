@@ -7,7 +7,8 @@ class AllPlayer(val player: List<Player>) {
     @Parcelize
     class Player(var idPlayer: String?, var strPlayer: String?, var strNationality: String?,
                  var strTeam: String?, var strDescriptionEN: String?, var strThumb: String?,
-                 var strCutout: String?, var strPosition: String?) : Parcelable {
+                 var strCutout: String?, var strPosition: String?,
+                 var strHeight: String?, var strWeight: String?) : Parcelable {
 
     }
 }

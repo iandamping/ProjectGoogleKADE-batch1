@@ -8,8 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.junemon.kotlinnetworking.R
+import com.example.junemon.kotlinnetworking.feature.team.detail.player.detail.PlayerActivity
 import com.example.junemon.kotlinnetworking.model.AllPlayer
 import kotlinx.android.synthetic.main.activity_player_all.*
+import org.jetbrains.anko.support.v4.intentFor
+
 
 class PlayerFrag : Fragment(), PlayerView {
     var presenter: PlayerPresenter = PlayerPresenter(this)
@@ -48,12 +51,13 @@ class PlayerFrag : Fragment(), PlayerView {
     override fun onSuccessData(data: List<AllPlayer.Player>) {
         rvAllPlayer.layoutManager = LinearLayoutManager(ctx)
         rvAllPlayer.adapter = PlayerAdapter(ctx, data) {
-
+            startActivity(intentFor<PlayerActivity>(Integer.toString(R.string.player_detail_frag) to it))
+//            startActivity<PlayerDetailActivity>("detailPlayer" to it)
         }
     }
+//    Integer.toString(R.string.player_detail_frag) to it)
 
     override fun onFail(message: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun initView(view: View) {
