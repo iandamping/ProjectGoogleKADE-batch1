@@ -9,7 +9,9 @@
     <string name="no_data">No Data Yet</string>
     <string name="table_name">TABLE_FAVORITE</string>
     <string name="table_league_name">TABLE_LEAGUE</string>
+    <string name="table_team_name">TABLE_TEAM</string>
     <string name="database_name">FavoriteTeam.db</string>
+    <string name="data_all_team">KeysTeam</string>
 
     <string name="TABLE_FAVORITE">TABLE_FAVORITE</string>
     <string name="id_table">ID_</string>

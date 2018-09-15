@@ -21,6 +21,7 @@ class TeamFragment : Fragment(), TeamView {
     var TYPE_TEAM: String? = "type_team"
     lateinit var typeTeams: String
 
+
     fun newInstance(type: String?): TeamFragment {
         val bundle = Bundle()
         val fragment = TeamFragment()
@@ -54,7 +55,7 @@ class TeamFragment : Fragment(), TeamView {
     override fun onSuccessData(data: List<TeamModel.Team>) {
         rvAllTeam.layoutManager = LinearLayoutManager(ctx)
         rvAllTeam.adapter = TeamAdapter(ctx, data) {
-            startActivity(intentFor<TeamDetail>("KeysTeam" to it))
+            startActivity(intentFor<TeamDetail>(Integer.toString(R.string.data_all_team) to it))
         }
     }
 

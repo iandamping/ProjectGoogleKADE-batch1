@@ -1,4 +1,4 @@
-package com.example.junemon.kotlinnetworking.feature.favorites.detail
+package com.example.junemon.kotlinnetworking.feature.favorites.matches.detail
 
 import com.example.junemon.kotlinnetworking.base.BaseView
 import com.example.junemon.kotlinnetworking.databases.DatabaseModel

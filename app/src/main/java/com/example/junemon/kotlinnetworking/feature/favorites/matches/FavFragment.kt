@@ -1,4 +1,4 @@
-package com.example.junemon.kotlinnetworking.feature.favorites
+package com.example.junemon.kotlinnetworking.feature.favorites.matches
 
 import android.content.Context
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.junemon.kotlinnetworking.R
 import com.example.junemon.kotlinnetworking.databases.DatabaseModel
-import com.example.junemon.kotlinnetworking.feature.favorites.detail.FavDetailActivity
+import com.example.junemon.kotlinnetworking.feature.favorites.matches.detail.FavDetailActivity
 import kotlinx.android.synthetic.main.activity_favorite.*
 import kotlinx.android.synthetic.main.activity_favorite.view.*
 import org.jetbrains.anko.support.v4.intentFor

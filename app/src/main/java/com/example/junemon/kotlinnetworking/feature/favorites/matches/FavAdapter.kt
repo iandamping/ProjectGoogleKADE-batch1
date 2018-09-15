@@ -1,4 +1,4 @@
-package com.example.junemon.kotlinnetworking.feature.favorites
+package com.example.junemon.kotlinnetworking.feature.favorites.matches
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

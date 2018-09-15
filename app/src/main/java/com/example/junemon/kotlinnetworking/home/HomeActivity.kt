@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import com.example.junemon.kotlinnetworking.MainPager
 import com.example.junemon.kotlinnetworking.R
 import com.example.junemon.kotlinnetworking.databases.DatabaseLeagueModel
-import com.example.junemon.kotlinnetworking.feature.favorites.FavFragment
+import com.example.junemon.kotlinnetworking.feature.favorites.FavPager
 import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
 import com.example.junemon.kotlinnetworking.feature.nextmatch.NextMatchFragment
 import com.example.junemon.kotlinnetworking.feature.team.TeamFragment
@@ -44,7 +44,7 @@ class HomeActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_container, MainPager().newInstance(data.idLeague), FavFragment::class.java.simpleName)
+                    .replace(R.id.main_container, MainPager().newInstance(data.idLeague), MainPager::class.java.simpleName)
                     .commit()
         }
     }
@@ -71,7 +71,7 @@ class HomeActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_container, FavFragment(), FavFragment::class.java.simpleName)
+                    .replace(R.id.main_container, FavPager(), FavPager::class.java.simpleName)
                     .commit()
         }
     }

@@ -24,7 +24,7 @@
         <activity android:name=".home.HomeActivity" />
         <activity android:name="com.example.junemon.kotlinnetworking.feature.lastmatch.detail.DetailLastMatchActivity" />
         <activity android:name="com.example.junemon.kotlinnetworking.feature.nextmatch.detail.DetailNextMatchActivity" />
-        <activity android:name=".feature.favorites.detail.FavDetailActivity" />
+        <activity android:name=".feature.favorites.matches.detail.FavDetailActivity" />
         <activity android:name=".feature.team.detail.TeamDetail" />
         <activity android:name=".feature.team.detail.player.detail.PlayerActivity"/>
     </application>

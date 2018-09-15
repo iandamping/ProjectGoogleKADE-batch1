@@ -46,11 +46,19 @@ class DatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, Integer.to
                 DatabaseLeagueModel.STR_LEAGUE to TEXT,
                 DatabaseLeagueModel.STR_SPORT to TEXT,
                 DatabaseLeagueModel.STR_LEAGUE_ALTERNATE to TEXT)
+
+        p0.createTable(DatabasesTeamModel.TABLE_TEAM, true,
+                DatabasesTeamModel.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                DatabasesTeamModel.ID_TEAM to TEXT,
+                DatabasesTeamModel.STR_DESCRIPTION to TEXT,
+                DatabasesTeamModel.STR_TEAM to TEXT,
+                DatabasesTeamModel.STR_TEAM_BADGE to TEXT)
     }
 
     override fun onUpgrade(p0: SQLiteDatabase, p1: Int, p2: Int) {
         p0.dropTable(Integer.toString(R.string.table_name), true)
         p0.dropTable(Integer.toString(R.string.table_league_name), true)
+        p0.dropTable(Integer.toString(R.string.table_team_name), true)
     }
 }
 

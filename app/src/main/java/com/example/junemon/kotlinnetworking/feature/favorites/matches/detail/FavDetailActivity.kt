@@ -1,4 +1,4 @@
-package com.example.junemon.kotlinnetworking.feature.favorites.detail
+package com.example.junemon.kotlinnetworking.feature.favorites.matches.detail
 
 import android.content.Intent
 import android.database.sqlite.SQLiteConstraintException

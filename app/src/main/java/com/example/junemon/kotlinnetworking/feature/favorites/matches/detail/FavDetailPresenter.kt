@@ -1,4 +1,4 @@
-package com.example.junemon.kotlinnetworking.feature.favorites.detail
+package com.example.junemon.kotlinnetworking.feature.favorites.matches.detail
 
 import android.content.Context
 import com.example.junemon.kotlinnetworking.base.BasePresenter

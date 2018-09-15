@@ -31,7 +31,8 @@ class PlayerAdapter(var ctx: Context?, var listData: List<AllPlayer.Player>, val
             tvPlayerPosition.text = item.strPosition
 
             itemView.setOnClickListener {
-                listener((item)) }
+                listener((item))
+            }
         }
     }
 }
