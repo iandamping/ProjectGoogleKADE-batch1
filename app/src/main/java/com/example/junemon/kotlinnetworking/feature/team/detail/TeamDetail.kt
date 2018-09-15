@@ -39,7 +39,7 @@ class TeamDetail : AppCompatActivity() {
         data = intent.getParcelableExtra(Integer.toString(R.string.data_all_team))
         Picasso.get().load(data.strTeamBadge).into(imTeamOverview)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        setFavorite()
+
 
         tabPlayerPage.setupWithViewPager(vpPlayerPage)
         if (vpPlayerPage != null) {

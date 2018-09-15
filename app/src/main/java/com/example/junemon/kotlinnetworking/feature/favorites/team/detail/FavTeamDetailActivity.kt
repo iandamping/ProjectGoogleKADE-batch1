@@ -36,7 +36,6 @@ class FavTeamDetailActivity : AppCompatActivity(), FavTeamDetailView {
         presenter.onCreate(this)
         presenter.getData(getdata)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -45,6 +44,7 @@ class FavTeamDetailActivity : AppCompatActivity(), FavTeamDetailView {
         setFavorite()
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             android.R.id.home -> {
@@ -79,7 +79,7 @@ class FavTeamDetailActivity : AppCompatActivity(), FavTeamDetailView {
         database.use {
             val result = select(DatabasesTeamModel.TABLE_TEAM)
                     .whereArgs("(ID_TEAM = {data})",
-                            "data" to getdata.strDescriptionEN!!)
+                            "data" to getdata.strTeam!!)
             val favorite = result.parseList(classParser<DatabasesTeamModel>())
             if (!favorite.isEmpty()) isFavorite = true
         }
@@ -89,7 +89,7 @@ class FavTeamDetailActivity : AppCompatActivity(), FavTeamDetailView {
         try {
             database.use {
                 delete(DatabasesTeamModel.TABLE_TEAM, "(ID_TEAM = {data})",
-                        "data" to getdata.strDescriptionEN!!)
+                        "data" to getdata.strTeam!!)
             }
         } catch (e: SQLiteConstraintException) {
         }

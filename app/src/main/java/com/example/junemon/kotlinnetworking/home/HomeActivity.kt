@@ -8,7 +8,6 @@ import com.example.junemon.kotlinnetworking.R
 import com.example.junemon.kotlinnetworking.databases.DatabaseLeagueModel
 import com.example.junemon.kotlinnetworking.feature.favorites.FavPager
 import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
-import com.example.junemon.kotlinnetworking.feature.nextmatch.NextMatchFragment
 import com.example.junemon.kotlinnetworking.feature.team.TeamFragment
 import kotlinx.android.synthetic.main.homeactivity.*
 
@@ -20,6 +19,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.homeactivity)
         val intent: Intent = getIntent()
         data = intent.getParcelableExtra("keys")
+
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.lastMatches -> {
@@ -38,7 +38,13 @@ class HomeActivity : AppCompatActivity() {
             false
         }
         bottom_navigation.selectedItemId = R.id.lastMatches
+
     }
+
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.item_search, menu)
+//        return true
+//    }
 
     private fun loadMainFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
@@ -49,14 +55,6 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadNextMatchFragment(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.main_container, NextMatchFragment(), NextMatchFragment::class.java.simpleName)
-                    .commit()
-        }
-    }
 
     private fun loadTeamFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {

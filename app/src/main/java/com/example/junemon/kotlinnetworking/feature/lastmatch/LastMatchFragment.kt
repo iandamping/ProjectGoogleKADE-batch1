@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_lastmatch.*
 import kotlinx.android.synthetic.main.activity_lastmatch.view.*
 import org.jetbrains.anko.support.v4.intentFor
 
+
 class LastMatchFragment : Fragment(), LastMatchFragmentView {
 
     var presenter: LastMatchFragmentPresenter = LastMatchFragmentPresenter(this)
@@ -42,13 +43,12 @@ class LastMatchFragment : Fragment(), LastMatchFragmentView {
         this.ctx = context
         presenter.onAttach(ctx)
 
-
     }
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var views: View = inflater.inflate(R.layout.activity_lastmatch, container, false)
         presenter.onCreateView(views)
+
         views.swipeLast.setOnRefreshListener {
             presenter.getData(typeNews)
             swipeLast.isRefreshing = false
@@ -57,7 +57,6 @@ class LastMatchFragment : Fragment(), LastMatchFragmentView {
     }
 
     override fun onSuccess(data: List<MainModelLastMatch.Event>) {
-
         rvFootbalEventLastMatch.layoutManager = LinearLayoutManager(ctx)
         rvFootbalEventLastMatch.adapter = LastMatchAdapter(ctx, data) {
             startActivity(intentFor<DetailLastMatchActivity>(Integer.toString(R.string.parcel_key) to it))

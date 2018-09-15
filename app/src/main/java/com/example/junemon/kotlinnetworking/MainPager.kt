@@ -30,6 +30,13 @@ class MainPager : Fragment() {
         type = args?.getString(TYPE_NEWS) ?: "4328"
     }
 
+//    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+//        inflater?.inflate(R.menu.item_search, menu)
+//        val searchItem = menu?.findItem(R.id.action_search)
+//        val searchView = searchItem?.getActionView() as SearchView
+//        super.onCreateOptionsMenu(menu, inflater)
+//    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var views: View = inflater.inflate(R.layout.main_pager, container, false)
         vpMainPager = views.findViewById(R.id.vpMainPage) as ViewPager
