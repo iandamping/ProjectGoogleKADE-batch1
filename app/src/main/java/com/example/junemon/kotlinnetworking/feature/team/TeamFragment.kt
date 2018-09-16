@@ -1,16 +1,15 @@
 package com.example.junemon.kotlinnetworking.feature.team
 
 import android.content.Context
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.view.*
-import android.widget.SearchView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import com.example.junemon.kotlinnetworking.R
 import com.example.junemon.kotlinnetworking.feature.team.detail.TeamDetail
-import com.example.junemon.kotlinnetworking.home.HomeActivity
 import com.example.junemon.kotlinnetworking.model.TeamModel
 import kotlinx.android.synthetic.main.activity_all_team.*
 import kotlinx.android.synthetic.main.activity_all_team.view.*
@@ -42,7 +41,6 @@ class TeamFragment : Fragment(), TeamView {
         this.ctx = context
         presenter.onAttach(ctx)
     }
-
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

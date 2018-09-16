@@ -37,6 +37,12 @@ interface ApiInterface {
     @GET(ApiConfig.getTeamDetails)
     fun getTeamDetail(@Query("id") teamName: String?): Observable<TeamDetailModel>
 
-    @GET(ApiConfig.getAllTeamDetals)
-    fun getAllTeamDetail(@Query("id") teamName: String?): Observable<TeamModel>
+    @GET(ApiConfig.getTeamSearchDetails)
+    fun getTeamSearchDetails(@Query("t") teamName: String?): Observable<TeamModel>
+
+    @GET(ApiConfig.getSearchNextEvent)
+    fun getSearchNextEventData(@Query("id") teamName: String?): Observable<MainModelNextMatch>
+
+    @GET(ApiConfig.getSearchLastEvent)
+    fun getSearchPastEventData(@Query("id") teamName: String?): Observable<MainModelLastMatch>
 }

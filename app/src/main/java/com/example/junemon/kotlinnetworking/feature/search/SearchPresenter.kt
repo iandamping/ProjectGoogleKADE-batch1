@@ -31,28 +31,38 @@ class SearchPresenter(var mView: SerachView) : BasePresenter {
 
     }
 
-    fun getLastData(idLastMatch: String? = "4328") {
+    fun getLastData(idLastMatch: String?) {
         EspressoIdlingResource.increments()
-        compositeDisposable.addAll(MainApplication.getFootballEvent.getPastEventData(idLastMatch)
+        compositeDisposable.addAll(MainApplication.getFootballEvent.getSearchPastEventData(idLastMatch)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result -> mView.getLastData(result.events) },
-                        { error -> mView.onFailed(error.localizedMessage) },
+                        { error -> mView.onFailed("Tidak Ada Data Pertandingan") },
                         { EspressoIdlingResource.decrements() }))
 
     }
 
-    fun getNextData(data: String = "4328") {
-        compositeDisposable.add(MainApplication.getFootballEvent.getNextEventData(data)
+    fun getNextData(data: String?) {
+        EspressoIdlingResource.increments()
+        compositeDisposable.add(MainApplication.getFootballEvent.getSearchNextEventData(data)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result -> mView.getNextData(result.events) },
-                        { error -> mView.onFailed(error.localizedMessage) }))
+                        { error -> mView.onFailed("Tidak Ada Data Pertandingan") },
+                        { EspressoIdlingResource.increments() }))
 
     }
 
-    fun getAllTeam(data: String = "4328") {
-        compositeDisposable.add(MainApplication.getFootballEvent.getAllTeamDetail(data)
+    fun getAllTeamDetails(data: String) {
+        EspressoIdlingResource.increments()
+        compositeDisposable.add(MainApplication.getFootballEvent.getTeamSearchDetails(data)
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ result -> mView.getAllTeam(result.teams) },
-                        { error -> mView.onFailed(error.localizedMessage) }))
+                .subscribe({ result ->
+                    getLastData(result.teams.get(0).idTeam)
+                    getNextData(result.teams.get(0).idTeam)
+                    mView.getAllTeam(result.teams)
+                },
+                        { error -> mView.onFailed("Team Tidak Ada") },
+                        {
+                            EspressoIdlingResource.increments()
+                        }))
     }
 }
