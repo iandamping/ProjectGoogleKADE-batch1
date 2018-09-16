@@ -12,6 +12,7 @@ import com.example.junemon.kotlinnetworking.feature.favorites.FavPager
 import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
 import com.example.junemon.kotlinnetworking.feature.search.SearchActivity
 import com.example.junemon.kotlinnetworking.feature.team.TeamFragment
+import com.example.junemon.kotlinnetworking.helper.EspressoIdlingResource
 import kotlinx.android.synthetic.main.homeactivity.*
 import org.jetbrains.anko.startActivity
 
@@ -20,6 +21,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.homeactivity)
         val intent: Intent = getIntent()
         data = intent.getParcelableExtra("keys")

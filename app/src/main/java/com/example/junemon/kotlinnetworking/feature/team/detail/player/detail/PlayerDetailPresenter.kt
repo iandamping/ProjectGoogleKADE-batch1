@@ -23,11 +23,6 @@ class PlayerDetailPresenter(var mView: PlayerDetailView) : BasePresenter {
 
     fun getPlayerDetail(allData: AllPlayer.Player) {
         mView.onGetData(allData)
-//        EspressoIdlingResource.increments()
-//        compositeDisposable.addAll(MainApplication.getFootballEvent.getPlayerDetail(allData.idPlayer).observeOn(AndroidSchedulers.mainThread())
-//                .subscribeOn(Schedulers.io()).subscribe({ results -> mView.successGetData(results.players.get(0)) },
-//                        { error -> mView.failGetData(error.localizedMessage) },
-//                        { EspressoIdlingResource.decrements() }))
     }
 
     override fun onPause() {

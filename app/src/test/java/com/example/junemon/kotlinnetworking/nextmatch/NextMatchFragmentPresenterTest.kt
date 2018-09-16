@@ -1,5 +1,3 @@
-
-
 import com.example.junemon.kotlinnetworking.MainApplication
 import com.example.junemon.kotlinnetworking.feature.nextmatch.NextMatchFragmentView
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -11,6 +9,7 @@ import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
 class NextMatchFragmentPresenterTest {
+
     @Mock
     private lateinit var composite: CompositeDisposable
     @Mock
@@ -25,7 +24,7 @@ class NextMatchFragmentPresenterTest {
 
     @Test
     fun getData() {
-        composite.add(MainApplication.getFootballEvent.getNextEventData()
+        composite.add(MainApplication.getFootballEvent.getNextEventData("4328")
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result -> mView.onSuccess(result.events) },
                         { error -> mView.onFailed(error.localizedMessage) }))

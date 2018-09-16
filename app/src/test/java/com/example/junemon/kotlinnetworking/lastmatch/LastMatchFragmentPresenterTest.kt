@@ -10,8 +10,9 @@ import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
 class LastMatchFragmentPresenterTest() {
+
     @Mock
-    private lateinit var mView:LastMatchFragmentView
+    private lateinit var mView: LastMatchFragmentView
     @Mock
     private lateinit var composite: CompositeDisposable
 
@@ -24,7 +25,7 @@ class LastMatchFragmentPresenterTest() {
 
     @Test
     fun getData() {
-        composite.add(MainApplication.getFootballEvent.getPastEventData()
+        composite.add(MainApplication.getFootballEvent.getPastEventData("4328")
                 .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ result -> mView.onSuccess(result.events) },
                         { error -> mView.onFailed(error.localizedMessage) }))

@@ -11,6 +11,7 @@ import com.example.junemon.kotlinnetworking.R
 import com.example.junemon.kotlinnetworking.feature.lastmatch.detail.DetailLastMatchActivity
 import com.example.junemon.kotlinnetworking.feature.nextmatch.detail.DetailNextMatchActivity
 import com.example.junemon.kotlinnetworking.feature.team.detail.TeamDetail
+import com.example.junemon.kotlinnetworking.helper.EspressoIdlingResource
 import com.example.junemon.kotlinnetworking.model.MainModelLastMatch
 import com.example.junemon.kotlinnetworking.model.MainModelNextMatch
 import com.example.junemon.kotlinnetworking.model.TeamModel
@@ -37,7 +38,6 @@ class SearchActivity : AppCompatActivity(), SerachView, View.OnClickListener {
         rvLastMatchSearch.layoutManager = LinearLayoutManager(this)
         if (data.isNotEmpty() && data.size > 0) {
             llNews.visibility = View.VISIBLE
-
             rvLastMatchSearch.adapter = SearchLastAdapter(this, data) {
                 startActivity(intentFor<DetailLastMatchActivity>(Integer.toString(R.string.parcel_key) to it))
             }
