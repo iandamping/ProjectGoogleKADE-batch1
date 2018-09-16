@@ -10,6 +10,7 @@ class ApiConfig {
         const val getAllTeams: String = "api/v1/json/1/search_all_teams.php"
         const val getAllPlayers: String = "api/v1/json/1/lookup_all_players.php"
         const val getTeamDetails: String = "api/v1/json/1/lookupteam.php"
+        const val getAllTeamDetals:String = "api/v1/json/1/lookup_all_teams.php?id=4328"
         const val getPlayerDetails: String = "api/v1/json/1/lookupplayer.php"
     }
 }

@@ -37,6 +37,6 @@ interface ApiInterface {
     @GET(ApiConfig.getTeamDetails)
     fun getTeamDetail(@Query("id") teamName: String?): Observable<TeamDetailModel>
 
-    @GET(ApiConfig.getPlayerDetails)
-    fun getPlayerDetail(@Query("id") teamName: String?): Observable<PlayerDetailModel>
+    @GET(ApiConfig.getAllTeamDetals)
+    fun getAllTeamDetail(@Query("id") teamName: String?): Observable<TeamModel>
 }

@@ -3,13 +3,17 @@ package com.example.junemon.kotlinnetworking.home
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import com.example.junemon.kotlinnetworking.MainPager
 import com.example.junemon.kotlinnetworking.R
 import com.example.junemon.kotlinnetworking.databases.DatabaseLeagueModel
 import com.example.junemon.kotlinnetworking.feature.favorites.FavPager
 import com.example.junemon.kotlinnetworking.feature.lastmatch.LastMatchFragment
+import com.example.junemon.kotlinnetworking.feature.search.SearchActivity
 import com.example.junemon.kotlinnetworking.feature.team.TeamFragment
 import kotlinx.android.synthetic.main.homeactivity.*
+import org.jetbrains.anko.startActivity
 
 class HomeActivity : AppCompatActivity() {
     lateinit var data: DatabaseLeagueModel
@@ -41,10 +45,24 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.item_search, menu)
-//        return true
-//    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.item_search, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when (item?.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            R.id.action_search -> {
+                startActivity<SearchActivity>()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     private fun loadMainFragment(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
